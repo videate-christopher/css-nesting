@@ -1,6 +1,7 @@
 body {
     margin: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .demo-section {
@@ -8,6 +9,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    counter-reset: div;
 
     &:nth-of-type(2) {
         background-color: black;
@@ -139,16 +141,24 @@ body {
 }
 
 
-.circle {
+.circle  {
     width: 400px;
     height: 400px;
+    border: 1px solid red;
     border-radius: 50%;
-    border: 1px solid green;
 
     & div {
         width: 90%;
         height: 90%;
         opacity: 0;
+        color: #fff;
+        counter-increment: div;
+        border: 1px solid;
+        border-color: blue;
+
+        &:before {
+            content: counter(div)".";
+        }
     }
 
     & :hover {
